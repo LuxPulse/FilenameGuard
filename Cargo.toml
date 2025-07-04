@@ -1,5 +1,5 @@
 [package]
-name = "filenameguard"
+name = "NameLock"
 version = "1.0.0"
 authors = ["Lux (Ali) <mindofluxx@gmail.com>"]
 edition = "2021"
