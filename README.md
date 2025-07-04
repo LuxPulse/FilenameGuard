@@ -1,6 +1,6 @@
-#🔐 NameLock: Context-Bound File Encryption
+##🔐 NameLock: Context-Bound File Encryption
 
-#🧩 What is NameLock?
+##🧩 What is NameLock?
 
 NameLock is a lightweight Rust-based encryption tool that introduces a novel concept: your file’s name becomes part of the encryption key.
 
@@ -11,7 +11,7 @@ This adds a unique contextual binding layer to encryption, enhancing tamper resi
 
 ---
 
-#🌟 Key Features
+##🌟 Key Features
 
 🔐 Filename-dependent key derivation
 Encryption key is derived from:
@@ -30,7 +30,7 @@ The filename becomes part of the trust model — changes are detectable.
 
 ---
 
-#💡 Why It Matters
+##💡 Why It Matters
 
 > “Billions of files are renamed, copied, and mishandled every day — and encryption doesn’t care. What if it did?”
 
@@ -44,7 +44,7 @@ This simple shift creates tamper-evident, identity-bound encrypted files, helpin
 
 ---
 
-#📦 How It Works
+##📦 How It Works
 
 🔐 Encrypt
 
@@ -68,7 +68,7 @@ Decryption fails if filename doesn't match original
 
 ---
 
-#🧠 Visual Summary
+##🧠 Visual Summary
 
 Password + Filename
     │
@@ -84,7 +84,7 @@ Decrypt fails if filename changed ❌
 
 ---
 
-#✨ Feature Comparison
+##✨ Feature Comparison
 
 Feature	Traditional Encryption	NameLock
 
@@ -97,7 +97,7 @@ Concept originality	🔁 Common	🌟 Innovative idea
 
 ---
 
-#🚀 Use Cases
+##🚀 Use Cases
 
 🔐 Files with sensitive names (e.g., wallet.txt)
 
@@ -113,7 +113,7 @@ Concept originality	🔁 Common	🌟 Innovative idea
 
 ---
 
-#🛠️ Build & Run
+##🛠️ Build & Run
 
 1. Install Rust:
 
@@ -137,7 +137,7 @@ cargo build --release
 
 ---
 
-🧪 The Innovation
+##🧪 The Innovation
 
 > “What if renaming a file broke the encryption?”
 
