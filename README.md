@@ -1,4 +1,7 @@
-
+![Stars](https://img.shields.io/github/stars/LuxPulse/NameLock?style=social)
+![License](https://img.shields.io/github/license/LuxPulse/NameLock)
+![Last Commit](https://img.shields.io/github/last-commit/LuxPulse/NameLock)
+![Rust](https://img.shields.io/badge/language-Rust-orange?logo=rust)
 ---
 
 # 🔐✨ NameLock: Context-Bound File Encryption ✨🔐
