@@ -1,8 +1,8 @@
----
+
 
 # 🔐 FilenameGuard: Context-Bound File Encryption
 
-## 🧩 What is FilenameGuard?
+# 🧩 What is FilenameGuard?
 
 **FilenameGuard** is a lightweight Rust-based encryption tool that introduces a novel concept: your file’s **name** becomes part of the encryption key.
 
