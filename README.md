@@ -1,107 +1,158 @@
-🔐 FilenameGuard: Context-Bound File Encryption
+---
 
-🧩 What is FilenameGuard?
+# 🔐 FilenameGuard: Context-Bound File Encryption
 
-FilenameGuard is a lightweight encryption tool that introduces a new concept in data protection: your file’s name becomes part of the encryption key.
+## 🧩 What is FilenameGuard?
 
-Even if the file is renamed, relocated under a different name, or the attacker correctly guesses your password — decryption will fail unless the original filename is preserved.
+**FilenameGuard** is a lightweight Rust-based encryption tool that introduces a novel concept: your file’s **name** becomes part of the encryption key.
 
-This adds a unique contextual binding layer to encryption, improving security and tamper resistance with zero added complexity.
+Even if someone renames or relocates the file — or even guesses your password correctly — **decryption will fail** unless the original filename is preserved.
 
-🌟 Feature Summary
+This adds a unique *contextual binding layer* to encryption, enhancing tamper resistance without any added complexity.
 
-🔐 Filename-dependent key derivation
-The encryption key is derived from:
+---
 
-SHA-256(password + filename) 
+## 🌟 Key Features
 
-🚫 Fails on rename If the file name changes, decryption will fail even with the correct password.
+- 🔐 **Filename-dependent key derivation**  
+  Encryption key is derived from:  
+  `SHA-256(password + filename)`
 
-✅ Minimal & fast Simple CLI-based tool written in Rust using AES-256-CBC with block-modes.
+- 🚫 **Fails on rename**  
+  Decryption fails if the file is renamed, even with the correct password.
 
-🔐 Consistent file integrity Tied identity to filename enhances trust, traceability, and prevents casual tampering.
+- ⚡ **Minimal & fast**  
+  CLI-based tool using `AES-256-CBC` and `HMAC-SHA256`, written in Rust.
 
-💡 Why Does It Matter?
+- 🛡️ **Integrity tied to identity**  
+  The filename becomes part of the trust model — changes are detectable.
 
-"Billions of files are renamed, copied, and mishandled every day — but encryption doesn't care. What if it did?"
+---
 
-FilenameGuard introduces encryption that cares about context. It's a tiny shift in perspective with huge implications for digital trust, file identity, and leak prevention.
+## 💡 Why It Matters
 
-It makes renaming a file a security event, not a trivial change.
+> “Billions of files are renamed, copied, and mishandled every day — and encryption doesn’t care. What if it did?”
 
-📦 How It Works
+**FilenameGuard** introduces encryption that *cares about context*.  
+It transforms a filename into a meaningful part of a file's identity — and security.
 
-🔐 Encryption
+This simple shift creates **tamper-evident**, **identity-bound** encrypted files, helping prevent misuse, leaks, and confusion.
 
-encrypt <file_path> <password> 
+---
 
-Derives a key from the password + file name.
+## 📦 How It Works
 
-Encrypts the file with AES-256-CBC.
+### 🔐 Encrypt
 
-Saves the result as <original_filename>.enc
+```sh
+filenameguard encrypt <file_path> <password>
 
-🔓 Decryption
+Derives a key from SHA-256(password + filename)
 
-decrypt <file_path.enc> <password> 
+Encrypts the file using AES-256-CBC
 
-Extracts original filename.
+Stores the result as <original_filename>.enc
 
-Regenerates key using filename + password.
 
-If filename was changed → decryption fails.
+
+---
+
+🔓 Decrypt
+
+filenameguard decrypt <file_path.enc> <password>
+
+Extracts the original filename
+
+Derives the key from password + filename
+
+Decryption fails if filename doesn't match original
+
+
+
+---
 
 🧠 Visual Summary
 
-Password + Filename ──► SHA-256 ──► Key ──► AES Encrypt ▲ │ │ ▼ Filename mismatch = decryption failure ❌ 
+Password + Filename
+        │
+     SHA-256
+        │
+       Key
+        │
+   AES-256-CBC
+        ▲
+        │
+ Decrypt fails if filename changed ❌
 
-✨ Comparison
 
-| Feature               | Traditional Encryption | FilenameGuard       |
-|-----------------------|------------------------|----------------------|
-| Context sensitivity   | ❌ None                | ✅ Yes              |
-| Rename protection     | ❌ Vulnerable          | ✅ Enforced by design |
-| Identity binding      | 🔄 Basic (password)     | 🔒 Strong (filename) |
-| Conceptual novelty    | 🔁 Common              | 🌟 Original Idea     |
+---
 
+✨ Feature Comparison
+
+Feature	Traditional Encryption	FilenameGuard
+
+Context awareness	❌ None	✅ Yes
+Rename protection	❌ Vulnerable	✅ Enforced by design
+Identity binding	🔁 Basic (password)	🔒 Strong (filename)
+Conceptual originality	🔁 Common	🌟 Innovative idea
+
+
+
+---
 
 🚀 Use Cases
 
-Personal files with sensitive names (e.g., my-wallet.txt)
+🔐 Files with sensitive names (e.g., wallet.txt)
 
-Tamper-evident backups
+🔍 Tamper-evident backups
 
-Identity-linked file sharing
+📎 Filename-linked file sharing
 
-Developer tools that enforce filename integrity
+🛠️ Dev tools enforcing filename identity
 
-Context-bound data in secure systems
+🔗 Context-bound data security
 
-📚 How to Build & Run
 
-Install Rust:
 
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh 
+---
 
-Build:
+🛠️ Build & Run
 
-cargo build --release 
+1. Install Rust
 
-Run:
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-./target/release/filenameguard encrypt secret.txt mypassword ./target/release/filenameguard decrypt secret.txt.enc mypassword 
+2. Build the project
 
-🧪 About the Innovation
+cargo build --release
 
-"What if renaming the file broke the encryption?"
-That question sparked this tool.
+3. Encrypt / Decrypt
 
-FilenameGuard brings a fresh idea to encryption — one that’s intuitive, original, and rarely explored in commercial or academic products.
+./target/release/filenameguard encrypt secret.txt My$trongPass!
+./target/release/filenameguard decrypt secret.txt.enc My$trongPass!
+
+
+---
+
+🧪 The Innovation
+
+> “What if renaming a file broke the encryption?”
+
+
+
+That simple question sparked FilenameGuard — a fresh take on encryption design that binds data to its identity and context.
+
+Rarely explored in commercial or academic tools, this idea unlocks new possibilities in digital trust.
+
+
+---
 
 👨‍💻 Author & License
 
 Created by Lux (Ali)
-📧 Contact: mindofluxx@gmail.com
+📧 Email: mindofluxx@gmail.com
 
-MIT License © 2025 Lux (Ali)
+Licensed under the MIT License © 2025 Lux (Ali)
 
+
+---
