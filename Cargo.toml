@@ -1,0 +1,17 @@
+[package]
+name = "filenameguard"
+version = "1.0.0"
+authors = ["Lux (Ali) <mindofluxx@gmail.com>"]
+edition = "2021"
+license = "MIT"
+description = "🔐 Context-bound file encryption using filename + password with AES-256-CBC and HMAC."
+
+
+[dependencies]
+aes = "0.8"
+block-modes = "0.8"
+block-padding = "0.2"
+hmac = "0.12"
+pbkdf2 = "0.10"
+rand = "0.8"
+sha2 = "0.10"
